@@ -1,14 +1,18 @@
 <template>
-  <p class="">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi harum non
-    consectetur ab iste dolores esse molestias, ratione labore unde? Commodi
-    incidunt vel voluptates amet praesentium officiis quam sed nostrum, delectus
-    iusto dolore at iure explicabo, autem minima harum repellat voluptatum
-    expedita quibusdam rem vero natus enim nulla ea! Magni consequuntur
-    recusandae beatae. Vitae, adipisci eius! Qui ipsam, reiciendis pariatur,
-    deleniti quis aliquid voluptatum ipsum consectetur ut saepe quo minus
-    laborum unde voluptates officiis fugit non. Optio sit accusamus quo dolor
-    delectus ratione nisi quae velit, excepturi nulla. Dicta odit similique in
-    corporis harum id nobis ut voluptates adipisci dolores.
-  </p>
+  <div
+    class="grid grid-cols-1 md:grid-cols-3 gap-y-2 md:gap-28 grid-rows-auto justify-start items-center p-20 md:text-xl"
+  >
+    <h3 class="cols-span-1 text-2xl md:text-6xl">Carl Persson</h3>
+    <p class="col-span-1 md:col-span-2 text-xl">
+      Jag är en 35-årig webbutvecklare från Göteborg. Älskar programmering och
+      problemlösning. Gillar att jobba både inom {{ "front & back-end" }}. Där
+      det finns saker att göra/problem att lösa, där vill jag vara.
+    </p>
+    <p class="text-3xl col-span-1">Familj:</p>
+    <p class="col-span-1 md:col-span-2">Fästmö och två barn</p>
+    <p class="text-3xl">Intressen:</p>
+    <p class="col-span-1 md:col-span-2">
+      Programmering, Träning, Anime, Spel, Kampsport
+    </p>
+  </div>
 </template>
