@@ -1,9 +1,10 @@
 <template>
   <div class="relative min-h-screen z-0 overflow-auto bg-black">
-    <!-- Centered div -->
+    <!-- Centered div with the text behind the menu-->
     <div
       class="background-text-container min-h-screen min-w-full flex justify-center items-center overflow-auto text-white"
     >
+      <!-- The text in the h2 that updates when menu items are hovered -->
       <transition name="fade" mode="out-in">
         <h2
           v-if="!isEnteringMenu"
@@ -17,6 +18,8 @@
           {{ backgroundText }}
         </h2>
       </transition>
+      <!-- End of the part with text that updates  -->
+      <!-- The part with the selected option. The Text behind the menu fades out when an option is clicked. Gets triggered by the "isInSingleTask" becomes true-->
       <transition name="fade" mode="out-in">
         <div
           class="selected-option absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center text-white"
@@ -25,15 +28,21 @@
           "
           :key="!menuVisible"
         >
+          <!-- The X button that triggers "enteringMenu" which leads back to the main menu -->
           <a
             v-if="!menuVisible && isIntroFinished && !isInSingleTask"
             class="text-5xl absolute top-0 right-0 p-4 cursor-pointer z-50"
             @click="enteringMenu"
             >X</a
           >
+          <!-- End of the X button -->
+          <!-- The different components that are rendered when an option is clicked. -->
           <AboutMe v-if="isAboutMeActive" key="AboutMe" />
           <MinaKunskaper v-if="isMinaKunskaperActive" key="MinaKunskaper" />
           <MinaProjekt v-if="isMinaProjekt" key="MinaProjekt" />
+
+          <!-- Since this menu option has one more sublevel i needed to add one more flag so the user dont always have to return to the main menu if they want to enter another task. -->
+          <!-- I did this by using "@value-changed="handleIsInSingleTask" which listens to a value inside a component. If the value is changed in the component, "isInSingleTask" in this file also updates to the new value -->
           <MinaUppgifter
             v-if="isMinaUppgifterActive"
             key="MinaUppgifter"
@@ -42,11 +51,13 @@
           <SocialaMedier v-if="isSocialaMedierActive" key="SocialaMedier" />
         </div>
       </transition>
+      <!-- End of the part with the selected option -->
     </div>
+    <!-- End of centered div -->
 
     <!-- Grid container -->
     <div
-      class="main-menu absolute top-0 left-0 right-0 bottom-0 grid grid-cols-1 md:grid-cols-10 md:grid-rows-4 gap-y-3 md:gap-3 z-10 p-4"
+      class="main-menu absolute top-0 left-0 right-0 bottom-0 grid grid-cols-1 md:grid-cols-10 md:grid-rows-4 gap-y-3 md:gap-3 z-10 p-4 text-3xl md:text-2xl"
       :class="[
         transitionClasses,
         { 'opacity-0': !menuVisible, 'opacity-100': menuVisible },
@@ -128,6 +139,7 @@
         <h3>Kontakt</h3>
       </div>
     </div>
+    <!-- End of grid container -->
   </div>
 </template>
 

@@ -1,4 +1,5 @@
 <template>
+  <!-- The menu with the clickable tasks -->
   <div
     v-if="allTasksVisible && !singleTaskVisible"
     class="grid grid-cols-2 md:grid-cols-4 gap-7 px-10"
@@ -9,7 +10,7 @@
       class="uppgift-container flex justify-center items-center cursor-pointer"
       :key="uppgift.id"
       @click="
-        (singleUppgift = uppgift.id - 1),
+        (singleUppgift = uppgift.id - 1), //Added -1 so i can use the id as index in the array
           (allTasksVisible = false),
           enteringSingleTask(true)
       "
@@ -24,6 +25,8 @@
       </p>
     </div>
   </div>
+  <!-- End of menu -->
+  <!-- The single task view -->
   <div
     v-if="singleTaskVisible && !allTasksVisible"
     class="grid grid-cols-1 md:grid-cols-2 gap-4 px-20 justify-center items-center absolute top-0 left-0 right-0 bottom-0"
@@ -45,6 +48,7 @@
       :key="i"
     />
   </div>
+  <!-- End of single task view -->
 </template>
 <script>
 export default {

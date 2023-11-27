@@ -84,6 +84,7 @@ export default {
         "Verbal och skriven kommunikation",
         "Öppensinnad",
       ],
+      //Im gonna update "hardSkills" to a list of objects instead and add the property imgPath instead.
       hardSkills: [
         "Html",
         "Css",
